@@ -39,23 +39,39 @@ DEBUG = True
 # A list of strings representing the host/domain names that this Django site can serve.
 # If you are unsure, just enter here your domain name, eg. ['mysite.com', 'www.mysite.com']
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+#print (os.environ.get("POSTGRES_DB"), os.environ.get("POSTGRES_USER"), os.environ.get("POSTGRES_PASSWORD"), os.environ.get("POSTGRES_HOST"))
+
 DATABASES = {
     "default": {
         # Misago requires PostgreSQL to run
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("POSTGRES_DB"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
-        "HOST": os.environ.get("POSTGRES_HOST"),
+        "NAME": 'misago',
+        "USER": 'postgres',
+        "PASSWORD": '',
+        "HOST": 'localhost',
         "PORT": 5432,
     }
 }
+
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# # noinspection PyTypeChecker
+# DATABASES['default']['ATOMIC_REQUESTS'] = True
+# DB_PREFIX = 'alumnica_'
 
 
 # Caching
@@ -89,9 +105,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = "es"
 
-TIME_ZONE = "UTC"
+# LANGUAGES = [
+#     ('es', _('Spanish')),
+# ]
+
+LANGUAGE_CODE = "en"  #'es-mx'
+
+#TIME_ZONE = 'America/Mexico_City'
+
 
 USE_I18N = True
 
@@ -115,7 +137,7 @@ MEDIA_URL = "/media/"
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 # https://docs.djangoproject.com/en/1.11/ref/settings/#static-root
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = 'static' #os.path.join(BASE_DIR, "static")
 
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
@@ -128,7 +150,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # is enabled, e.g. if you use the collectstatic or findstatic management command or use the static file serving view.
 # https://docs.djangoproject.com/en/1.10/ref/settings/#staticfiles-dirs
 
-STATICFILES_DIRS = []
+#STATICFILES_DIRS = []
 
 
 # Email configuration
@@ -427,3 +449,6 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DEBUG_TOOLBAR_CONFIG = {
     "SHOW_TOOLBAR_CALLBACK": "misago.conf.debugtoolbar.enable_debug_toolbar"
 }
+
+
+MISAGO_ADMIN_PATH='4dm1n40'

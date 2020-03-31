@@ -15,11 +15,11 @@
 
     <ul class="nav navbar-nav">
       {% if THREADS_ON_INDEX %}
-        <li>
+        <!--li>
           <a href="{% url 'misago:index' %}">
             {% trans "Threads" %}
           </a>
-        </li>
+        </li-->
         <li>
           <a href="{% url 'misago:categories' %}">
             {% trans "Categories" %}
@@ -31,16 +31,16 @@
             {% trans "Categories" %}
           </a>
         </li>
-        <li>
+        <!--li>
           <a href="{% url 'misago:threads' %}">
             {% trans "Threads" %}
           </a>
-        </li>
+        </li-->
       {% endif %}
       <li>
-        <a href="{% url 'misago:users' %}">
+        <!--a href="{% url 'misago:users' %}">
           {% trans "Users" %}
-        </a>
+        </a-->
       </li>
       {% for link in navbar_menu %}
         <li>
@@ -69,18 +69,18 @@
           </a>
         </li>
       {% else %}
-        <li>
+        <!--li>
           <a href="{% url 'misago:threads' %}">
             <i class="material-icon">message</i>
           </a>
-        </li>
+        </li-->
       {% endif %}
     {% elif THREADS_ON_INDEX %}
-      <li>
+      <!--li>
         <a href="{% url 'misago:index' %}">
           <i class="material-icon">message</i>
         </a>
-      </li>
+      </li-->
       <li>
         <a href="{% url 'misago:categories' %}">
           <i class="material-icon">forum</i>
@@ -92,11 +92,11 @@
           <i class="material-icon">forum</i>
         </a>
       </li>
-      <li>
+      <!--li>
         <a href="{% url 'misago:threads' %}">
           <i class="material-icon">message</i>
         </a>
-      </li>
+      </li-->
     {% endif %}
     <li>
       <a href="{% url 'misago:users' %}">
