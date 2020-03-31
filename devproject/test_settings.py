@@ -6,10 +6,10 @@ from .settings import *  # pylint: disable-all
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.environ.get("POSTGRES_TEST_DB"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
-        "HOST": os.environ.get("POSTGRES_HOST"),
+        "NAME": 'misago',
+        "USER": 'postgres',
+        "PASSWORD": '',
+        "HOST": 'localhost',
         "PORT": 5432,
     }
 }

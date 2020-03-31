@@ -47,18 +47,19 @@ ALLOWED_HOSTS = ['*']
 
 #print (os.environ.get("POSTGRES_DB"), os.environ.get("POSTGRES_USER"), os.environ.get("POSTGRES_PASSWORD"), os.environ.get("POSTGRES_HOST"))
 
+
+
 DATABASES = {
     "default": {
         # Misago requires PostgreSQL to run
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'misago',
-        "USER": 'postgres',
-        "PASSWORD": '',
-        "HOST": 'localhost',
+        "NAME": os.environ.get("POSTGRES_DB"),
+        "USER": os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+        "HOST": os.environ.get("POSTGRES_HOST"),
         "PORT": 5432,
     }
 }
-
 
 
 
