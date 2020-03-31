@@ -19,13 +19,19 @@ def get_provider_from_request(request, backend):
 
 def social_auth_view(f):
     def social_auth_view_wrapper(request, backend, *args, **kwargs):
+        print ('social_auth_view_wrapper')
+        print(request, backend, args, kwargs)
         if request.settings.enable_sso:
             raise PermissionDenied(_("Please use the 3rd party site to login."))
 
+        print(1)
         provider = get_provider_from_request(request, backend)
+        print(2)
         request.strategy = load_strategy(request)
+        print(3)
 
         backend_class = provider["auth_backend"]
+        print(4)
         request.backend = backend_class(
             request.strategy,
             reverse("misago:social-complete", kwargs={"backend": backend}),
@@ -46,6 +52,8 @@ def auth(request, backend):
 @csrf_exempt
 @social_auth_view
 def complete(request, backend, *args, **kwargs):
+    print ('complete')
+    print(request, backend, args, kwargs)
     return do_complete(
         request.backend,
         do_login,

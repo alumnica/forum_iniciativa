@@ -7,11 +7,11 @@
           {% trans "All" %}
         </a>
       </li>
-      <li{% if list_type == 'my' %} class="active"{% endif %}>
+      <!--li{% if list_type == 'my' %} class="active"{% endif %}>
         <a href="{{ category.get_absolute_url }}my/">
           {% trans "My" %}
         </a>
-      </li>
+      </li-->
       <li{% if list_type == 'new' %} class="active"{% endif %}>
         <a href="{{ category.get_absolute_url }}new/">
           {% trans "New" %}
